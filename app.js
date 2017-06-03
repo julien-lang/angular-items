@@ -1,4 +1,5 @@
 angular.module('itemsApp', [
+	'ngResource',
 	'ngRoute'
 ]);
 
@@ -16,4 +17,17 @@ angular.module('itemsApp').config([
 			}).
 			otherwise('/items');
 		}
+]);
+
+angular.module('itemsApp').factory('Item', [
+	'$resource',
+	function($resource) {
+		return $resource('item/:itemId.json', {}, {
+			query: {
+				method: 'GET',
+				params: {itemId: 'items'},
+				isArray: true
+			}
+		});
+	}
 ]);
