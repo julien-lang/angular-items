@@ -1,0 +1,25 @@
+<div>
+	<h1>Item - {{$ctrl.item.name}}</h1>
+	
+	<p>{{$ctrl.item.description}}</p>
+	
+	<table class="table table-striped">
+		<tr>
+			<th>Type</th>
+			<td>{{$ctrl.item.type}}</td>
+		</tr>
+			<th>URL</th>
+			<td><a href="{{$ctrl.item.url}}">{{$ctrl.item.url}}</a></td>
+		</tr>
+			<th>Status</th>
+			<td ng-class="{success: $ctrl.item.status == 'OK', warning: $ctrl.item.status == 'Processing', danger: $ctrl.item.status == 'Error'}">{{$ctrl.item.status}}</td>
+		</tr>
+			<th>Action</th>
+			<td>
+				<button ng-click="$ctrl.item.Delete($index)"title="Delete this item" class="btn btn-danger btn-sm">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true">Delete this item</span>
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>

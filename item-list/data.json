@@ -1,33 +1,38 @@
 [
 	{
-		"name": "item 1",
+		"id": "f1e1",
+		"name": "Item 1",
 		"url": "http://my-test.com/1",
 		"type": "Type-1",
 		"status": "OK",
 		"include": false
 	},
 	{
-		"name": "item-2",
+		"id": "f1e2",
+		"name": "Item 2",
 		"url": "http://my-test.com/2",
 		"type": "Type-1",
 		"status": "Error",
 		"include": false
 	},
 	{
-		"name": "item-44",
+		"id": "f1e3",
+		"name": "Item 445",
 		"url": "http://my-test.com/2",
 		"type": "Type-1",
 		"status": "Processing",
 		"include": false
 	},
 	{
-		"name": "item-55",
+		"id": "f1e4",
+		"name": "Super Item",
 		"url": "http://my-test.com/2",
 		"type": "Type-1",
 		"status": "Offline",
 		"include": false
 	},
 	{
+		"id": "f1e5",
 		"name": "item-10045",
 		"url": "http://my-test.com/2",
 		"type": "Type-2",

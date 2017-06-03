@@ -1,16 +1,16 @@
 angular.module('itemsApp').component('itemList', {
 	templateUrl: 'item-list/template.html',
 	controller: function($http) {
-		this.records = [];
+		this.items = [];
 		var self = this;
 		
 		$http.get('item-list/data.json').then(function(response) {
-			self.records = response.data;
+			self.items = response.data;
 		});
 		
 		// Delete data
 		this.Delete = function (index) {
-			this.records.splice(index, 1);
+			this.items.splice(index, 1);
 		};
 		// Reset new data model
 		this.Reset = function (form) {
@@ -21,8 +21,8 @@ angular.module('itemsApp').component('itemList', {
 		// this.Reset();
 		// Add new data
 		this.Add = function (form) {
-			// Add to main records
-			this.records.push({
+			// Add to main items
+			this.items.push({
 				name: form.newName,
 				type: form.newType,
 				url: form.newURL,

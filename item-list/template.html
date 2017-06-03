@@ -1,19 +1,24 @@
 <div>
-	<h1>List Items</h1>
+	<h1>Item list</h1>
 	<table class="table table-striped">
 		<tr>
 			<th>Name</th>
 			<th>Type</th>
 			<th>URL</th>
 			<th>Status</th>
-			<th>Action</th>
+			<th>Actions</th>
 		</tr>
-		<tr ng-repeat="record in $ctrl.records" ng-class="{success: record.status == 'OK', warning: record.status == 'Processing', danger: record.status == 'Error'}">
-			<td>{{record.name}}</td>
-			<td>{{record.type}}</td>
-			<td><a href="{{record.url}}">{{record.url}}</a></td>
-			<td>{{record.status}}</td>
+		<tr ng-repeat="item in $ctrl.items" ng-class="{success: item.status == 'OK', warning: item.status == 'Processing', danger: item.status == 'Error'}">
 			<td>
+				<a href="#!/item/{{item.id}}">{{item.name}}</a>
+			</td>
+			<td>{{item.type}}</td>
+			<td><a href="{{item.url}}">{{item.url}}</a></td>
+			<td>{{item.status}}</td>
+			<td>
+				<a class="btn btn-default btn-sm" href="#!/item/{{item.id}}" role="button">
+					<span class="glyphicon glyphicon-list-alt" title="View details" aria-hidden="true"></span>
+				</a>
 				<button ng-click="$ctrl.Delete($index)"title="Delete this item" class="btn btn-danger btn-sm">
 					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 				</button>
