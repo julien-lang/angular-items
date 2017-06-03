@@ -22,12 +22,27 @@ angular.module('itemsApp').config([
 angular.module('itemsApp').factory('Item', [
 	'$resource',
 	function($resource) {
-		return $resource('item/:itemId.json', {}, {
+		return $resource('/api/list', {}, {
 			query: {
 				method: 'GET',
-				params: {itemId: 'items'},
+				//params: {itemId: 'items'},
 				isArray: true
 			}
 		});
 	}
 ]);
+
+// angular.module('itemsApp').factory('loadItem', [
+// 	'$resource',
+// 	function($resource) {
+// 		return $resource('/api/info/', {}, {
+// 			query: {
+// 				method: 'GET',
+// 				//params: {itemId: 'items'},
+// 				isArray: true
+// 			}
+// 		});
+// 	}
+// ]);
+
+//var User = $resource('/user/:userId', {userId:'@id'});

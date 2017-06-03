@@ -5,4 +5,4 @@ RUN pip install CherryPy
 COPY . /app/
 
 CMD ["python", "/app/manager.py"]
-EXPOSE 80
+EXPOSE 8080
