@@ -23,7 +23,6 @@ class CherryPyWebService:
 	@cherrypy.tools.json_in()
 	def new(self):
 		input_json = cherrypy.request.json
-		print input_json
 		
 		f = tempfile.NamedTemporaryFile(mode="w", suffix=".json", prefix="item-", dir=self.workspace, delete=False)
 		
@@ -53,7 +52,6 @@ class CherryPyWebService:
 	@cherrypy.tools.json_out(handler=json_handler)
 	def info(self, item_id):
 		filename = os.path.join(self.workspace, "item-"+item_id+".json")
-		print item_id
 		with open(filename, "r") as f:
 			info = json.load(f)
 		
