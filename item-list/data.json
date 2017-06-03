@@ -1,0 +1,37 @@
+[
+	{
+		"name": "item 1",
+		"url": "http://my-test.com/1",
+		"type": "Type-1",
+		"status": "OK",
+		"include": false
+	},
+	{
+		"name": "item-2",
+		"url": "http://my-test.com/2",
+		"type": "Type-1",
+		"status": "Error",
+		"include": false
+	},
+	{
+		"name": "item-44",
+		"url": "http://my-test.com/2",
+		"type": "Type-1",
+		"status": "Processing",
+		"include": false
+	},
+	{
+		"name": "item-55",
+		"url": "http://my-test.com/2",
+		"type": "Type-1",
+		"status": "Offline",
+		"include": false
+	},
+	{
+		"name": "item-10045",
+		"url": "http://my-test.com/2",
+		"type": "Type-2",
+		"status": "OK",
+		"include": false
+	}
+]
