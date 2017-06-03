@@ -1,0 +1,56 @@
+<div>
+	<h1>List Items</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>URL</th>
+			<th>Status</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat="record in $ctrl.records" ng-class="{success: record.status == 'OK', warning: record.status == 'Processing', danger: record.status == 'Error'}">
+			<td>{{record.name}}</td>
+			<td>{{record.type}}</td>
+			<td><a href="{{record.url}}">{{record.url}}</a></td>
+			<td>{{record.status}}</td>
+			<td>
+				<button ng-click="$ctrl.Delete($index)"title="Delete this item" class="btn btn-danger btn-sm">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+			</td>
+		</tr>
+</table>
+</div>
+
+<div>
+	<h1>Create a new item</h1>
+	<form ng-submit="$ctrl.Add(this)" class="form-horizontal">
+		<div class="field form-group row">
+			<label for="state"class="col-sm-3 control-label">Name</label>
+			<div class="col-sm-4">
+				<input required class="form-control" type="text" placeholder="Enter a name" ng-model="newName">
+			</div>
+		</div>
+		<div class="field form-group row">
+			<label for="tax"class="col-sm-3 control-label">Type</label>
+			<div class="col-sm-4">
+				<select required class="form-control" ng-model="newType" ng-options="opt for opt in ['Type-1','Type-3']" >
+					 <option value='' disabled="disabled">Select a type</option>
+				</select>
+			</div>
+		</div>
+		<div class="field form-group row">
+			<label for="tax"class="col-sm-3 control-label">URL</label>
+			<div class="col-sm-4">
+				<input class="form-control" placeholder="Enter an URL (optional)" min="0" ng-model="newURL">
+			</div>
+		</div>
+		<div class="action form-group row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<button type="submit" class="btn btn-default">Add</button>
+				<button ng-click="$ctrl.Reset(this)" class="btn">Reset</button>
+			</div>
+		</div>
+	</form>
+</div>
