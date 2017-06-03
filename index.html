@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
 	<title>Items management</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script>
-	function ItemCtrl ($scope) {
+	var myApp = angular.module('myApp', []);
+	
+	myApp.controller('ItemController', function ItemController($scope) {
 		$scope.records = [
 			{ name: 'item 1', url: "http://my-test.com/1", type:"Type-1", status:"OK", include: false },
 			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"Error", include: false },
 			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"Processing", include: false },
-			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"OK", include: false }
+			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"Offline", include: false }
 		];
 		// Delete data
 		$scope.Delete = function (index) {
@@ -39,10 +42,10 @@
 			// See $Scope.Reset...
 			$scope.Reset();
 		}
-	}
+	});
 	</script>
 </head>
-<body ng-controller="ItemCtrl">
+<body ng-controller="ItemController">
 	<div class="container">
 		<div>
 			<h1>List Items</h1>
@@ -54,7 +57,7 @@
 					<th>Status</th>
 					<th>Action</th>
 				</tr>
-				<tr ng-repeat="record in records | orderBy:type:reverse" ng-class="{success: record.status == 'OK', warning: record.status == 'Processing', danger: record.status == 'Error'}">
+				<tr ng-repeat="record in records" ng-class="{success: record.status == 'OK', warning: record.status == 'Processing', danger: record.status == 'Error'}">
 					<td>{{record.name}}</td>
 					<td>{{record.type}}</td>
 					<td><a href="{{record.url}}">{{record.url}}</a></td>
