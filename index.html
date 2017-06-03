@@ -6,44 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script>
-	var myApp = angular.module('myApp', []);
-	
-	myApp.controller('ItemController', function ItemController($scope) {
-		$scope.records = [
-			{ name: 'item 1', url: "http://my-test.com/1", type:"Type-1", status:"OK", include: false },
-			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"Error", include: false },
-			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"Processing", include: false },
-			{ name: 'item-2', url: "http://my-test.com/2", type:"Type-1", status:"Offline", include: false }
-		];
-		// Delete data
-		$scope.Delete = function (index) {
-			$scope.records.splice(index, 1);
-		};
-		// Reset new data model
-		$scope.Reset = function () {
-			$scope.newName = '';
-			$scope.newURL = "";
-			$scope.newType = 0;
-		}
-		$scope.Reset();
-		// Add new data
-		$scope.Add = function () {
-			// Add to main records
-			$scope.records.push({
-				name: $scope.newName,
-				type: $scope.newType,
-				url: $scope.newURL,
-				status: "Processing",
-				include: false
-			});
-			// See $Scope.Reset...
-			$scope.Reset();
-		}
-	});
-	</script>
+	<script src="myApp.js"></script>
 </head>
 <body ng-controller="ItemController">
 	<div class="container">
