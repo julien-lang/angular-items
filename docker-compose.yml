@@ -1,0 +1,10 @@
+frontend:
+  image: app_items.frontend
+  ports:
+    - "80:80"
+  links:
+    - backend
+backend:
+  image: app_items.backend
+  ports:
+    - "8080:8080"
