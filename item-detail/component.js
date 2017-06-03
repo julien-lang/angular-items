@@ -1,8 +1,4 @@
-angular.module('itemDetail', [
-	'ngRoute'
-]);
-
-angular.module('itemDetail').component('itemDetail', {
+angular.module('itemsApp').component('itemDetail', {
 	templateUrl: 'item-detail/template.html',
 	controller: ['$http', '$routeParams',
  		function PhoneDetailController($http, $routeParams) {

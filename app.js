@@ -1,6 +1,5 @@
 angular.module('itemsApp', [
-	'ngRoute',
-	'itemDetail'
+	'ngRoute'
 ]);
 
 angular.module('itemsApp').config([
