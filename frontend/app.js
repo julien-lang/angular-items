@@ -24,9 +24,9 @@ angular.module('itemsApp').factory('Item', [
 	function($resource) {
 		return $resource('/api/list', {}, {
 			query: {
-				method: 'GET',
+				method: 'GET'
 				//params: {itemId: 'items'},
-				isArray: true
+				//isArray: true
 			}
 		});
 	}

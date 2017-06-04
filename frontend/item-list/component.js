@@ -1,7 +1,17 @@
 angular.module('itemsApp').component('itemList', {
 	templateUrl: 'item-list/template.html',
-	controller: ['Item', function(Item) {
+	controller: ['$http', 'Item', function($http, Item) {
 		this.items = Item.query();
+		
+		this.delete_item = function (item_id) {
+			console.log("delete "+item_id);
+			
+			$http.get('/api/delete/' + item_id).then(function(response) {
+				if (response.data["status"] == "deleted") {
+					self.items = Item.query();
+				}
+			});
+		};
 	}],
 		// // Delete data
 		// this.Delete = function (index) {

@@ -109,6 +109,15 @@ class CherryPyWebService:
 	@cherrypy.expose
 	@cherrypy.tools.json_out() # handler=json_handler
 	def delete(self, item_id):
+		if item_id not in self.fake_data:
+			raise cherrypy.HTTPError(404, "Unknown item "+item_id)
+		
+		info = self.fake_data[item_id]
+		del(self.fake_data[item_id])
+		
+		info["status"] = "deleted"
+		return info
+		
 		filename = os.path.join(self.workspace, "item-"+item_id+".json")
 		with open(filename, "r") as f:
 			info = json.load(f)
