@@ -2,7 +2,7 @@
 
 import cherrypy
 
-from app.CherryPyWebService import CherryPyWebService
+from app.APIService import APIService
 
 def main():
 	print("testettete")
@@ -15,7 +15,7 @@ def main():
 		'tools.encode.encoding': 'utf-8'
 	})
 	
-	cherrypy.quickstart(CherryPyWebService(cherrypy.engine))
+	cherrypy.quickstart(APIService(cherrypy.engine))
 
 
 if __name__ == "__main__":
